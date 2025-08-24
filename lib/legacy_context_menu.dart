@@ -5,6 +5,7 @@
 /// context menus.
 ///
 /// To use this library, import `package:legacy_context_menu/legacy_context_menu.dart`.
+library;
 
 export 'src/models/context_menu_item.dart';
 export 'src/models/submenu_behavior.dart';
