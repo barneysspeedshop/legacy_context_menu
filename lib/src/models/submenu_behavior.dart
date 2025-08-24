@@ -1,0 +1,4 @@
+enum SubmenuBehavior {
+  standard,
+  collapsible,
+}
