@@ -1,11 +1,13 @@
 name: legacy_context_menu
-description: "A simple, extensible context menu."
-version: 0.0.1
-homepage:
+description: "A simple, extensible context menu for Flutter that supports nested and collapsible submenus."
+version: 1.0.0
+homepage: https://github.com/barneysspeedshop/legacy_context_menu
+repository: https://github.com/barneysspeedshop/legacy_context_menu
+issue_tracker: https://github.com/barneysspeedshop/legacy_context_menu/issues
 
 environment:
-  sdk: ^3.9.0-196.1.beta
-  flutter: ">=1.17.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.19.0"
 
 dependencies:
   flutter:
@@ -14,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 
 flutter:

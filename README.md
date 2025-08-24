@@ -1,5 +1,8 @@
 # legacy_context_menu
 
+[![pub package](https://img.shields.io/pub/v/legacy_context_menu.svg)](https://pub.dev/packages/legacy_context_menu)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A simple, extensible context menu for Flutter that supports nested and collapsible submenus.
 
 `legacy_context_menu` provides a straightforward way to display a customizable context menu in your Flutter application. It's designed to be simple to use while offering powerful features like nested submenus and custom item widgets.
@@ -13,13 +16,19 @@ A simple, extensible context menu for Flutter that supports nested and collapsib
 *   **Dividers**: Separate menu items with dividers.
 *   **Customizable Appearance**: Adjust the menu's width, height, elevation, padding, and background color with `ContextMenuTheme`.
 
+## Screenshots
+
+| Light Mode | Dark Mode |
+| :---: | :---: |
+| **TODO: Add screenshot** | **TODO: Add screenshot** |
+
 ## Getting Started
 
 Add the package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  legacy_context_menu: ^1.0.0 # Replace with the latest version
+  legacy_context_menu: ^1.0.0
 ```
 
 Then, run `flutter pub get` in your terminal.
@@ -60,7 +69,7 @@ GestureDetector(
           ],
         ),
       ],
-      details.globalPosition,
+      tapPosition: details.globalPosition,
     );
   },
   child: Container(
@@ -72,55 +81,9 @@ GestureDetector(
 )
 ```
 
-## Example
+## API Documentation
 
-For a more comprehensive example, please see the `example` directory in this package.
-
-## API Overview
-
-### `showContextMenu<T>`
-
-This function displays the context menu. It's a wrapper around Flutter's `showMenu`.
-
-```dart
-Future<void> showContextMenu({
-  required BuildContext context,
-  required List<ContextMenuItem> menuItems,
-  Offset? tapPosition,
-  ContextMenuTheme theme = const ContextMenuTheme(),
-})
-```
-
-*   `context`: The `BuildContext` from which the menu is shown.
-*   `menuItems`: The list of `ContextMenuItem`s to display.
-*   `tapPosition`: The global position where the tap occurred. This is used to position the menu.
-*   `theme`: The theme to use for the context menu.
-
-### `ContextMenuItem<T>`
-
-This class defines the properties of a single item in the context menu.
-
-```dart
-class ContextMenuItem<T> {
-  final String caption;
-  final T? value;
-  final VoidCallback? onTap;
-  final Widget? icon;
-  final bool closeMenuOnTap;
-  final bool enabled;
-  final ContextMenuItemType type;
-  final List<ContextMenuItem> items;
-}
-```
-
-*   `caption`: The text displayed for the menu item.
-*   `value`: The value associated with the menu item.
-*   `onTap`: The callback function executed when the item is tapped.
-*   `icon`: An optional icon to display next to the caption.
-*   `closeMenuOnTap`: Whether the menu should close when the item is tapped. Defaults to `true`.
-*   `enabled`: Whether the menu item is interactive. Defaults to `true`.
-*   `type`: The type of the menu item (`item`, `divider`, or `submenu`).
-*   `items`: A list of sub-items for a submenu.
+For a detailed overview of the API, please see the [API documentation](https://pub.dev/documentation/legacy_context_menu/latest/).
 
 ## Customization
 
@@ -129,9 +92,9 @@ You can customize the appearance of the context menu by providing a `ContextMenu
 ```dart
 showContextMenu(
   context,
-  myMenuItems,
-  details.globalPosition,
-  const ContextMenuTheme(
+  menuItems: myMenuItems,
+  tapPosition: details.globalPosition,
+  theme: const ContextMenuTheme(
     backgroundColor: Colors.grey[200],
     elevation: 12,
     menuWidth: 250,
@@ -141,8 +104,12 @@ showContextMenu(
 );
 ```
 
-## Additional Information
+## Contributing
 
-To contribute to this package, please visit the [GitHub repository](https://github.com/your-username/legacy_context_menu).
+Contributions are welcome! Please visit the [GitHub repository](https://github.com/your-username/legacy_context_menu) to learn how to contribute.
 
 If you encounter any issues or have feature requests, please file them in the [issue tracker](https://github.com/your-username/legacy_context_menu/issues).
+
+## License
+
+This package is licensed under the [MIT License](https://opensource.org/licenses/MIT).
