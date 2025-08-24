@@ -100,8 +100,8 @@ class SubmenuEntryState extends PopupMenuItemState<String, SubmenuEntry> {
     if (widget.menuItem.submenuBehavior == SubmenuBehavior.collapsible) {
       // For collapsible menus, use a drop-down arrow that rotates when expanded.
       // It respects the theme's trailingIcon if provided.
-      final icon =
-          widget.theme.trailingIcon ?? Icon(Icons.arrow_drop_down, color: iconColor);
+      final icon = widget.theme.trailingIcon ??
+          Icon(Icons.arrow_drop_down, color: iconColor);
       return Transform.rotate(
         angle: _isExpanded ? 3.14159 : 0, // 180 degrees
         child: icon,

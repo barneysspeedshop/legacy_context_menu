@@ -4,7 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:legacy_context_menu/legacy_context_menu.dart';
 
 void main() {
-  testWidgets('showContextMenu displays menu items', (WidgetTester tester) async {
+  testWidgets('showContextMenu displays menu items',
+      (WidgetTester tester) async {
     // Define the menu items for the test.
     final menuItems = [
       ContextMenuItem(caption: 'Item 1'),

@@ -28,7 +28,9 @@ Future<void> showContextMenu({
   await showMenu<dynamic>(
     context: context,
     position: position,
-    shape: theme.menuBorder != null ? RoundedRectangleBorder(side: theme.menuBorder!) : null,
+    shape: theme.menuBorder != null
+        ? RoundedRectangleBorder(side: theme.menuBorder!)
+        : null,
     items: menuItems.map<PopupMenuEntry<dynamic>>((item) {
       if (item.isDivider) {
         return PopupMenuDivider(height: theme.dividerHeight);

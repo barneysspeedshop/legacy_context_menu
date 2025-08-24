@@ -22,8 +22,9 @@ class ContextMenuItemWidget extends PopupMenuItem<String> {
           onTap: menuItem.onTap,
           child: Builder(
             builder: (innerContext) {
-              final textStyle = Theme.of(innerContext).popupMenuTheme.textStyle ??
-                  Theme.of(innerContext).textTheme.bodyMedium;
+              final textStyle =
+                  Theme.of(innerContext).popupMenuTheme.textStyle ??
+                      Theme.of(innerContext).textTheme.bodyMedium;
               return Container(
                 width: menuWidth,
                 alignment: Alignment.centerLeft,
@@ -34,7 +35,8 @@ class ContextMenuItemWidget extends PopupMenuItem<String> {
                           menuItem.leading!,
                           const SizedBox(width: 10),
                         ],
-                        Expanded(child: Text(menuItem.caption!, style: textStyle)),
+                        Expanded(
+                            child: Text(menuItem.caption!, style: textStyle)),
                         if (menuItem.trailing != null) ...[
                           const SizedBox(width: 10),
                           menuItem.trailing!,

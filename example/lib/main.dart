@@ -43,7 +43,8 @@ class MyHomePage extends StatelessWidget {
                 caption: 'Paste',
                 leading: const Icon(Icons.paste),
                 onTap: () => debugPrint('Pasted'),
-                trailing: const Text('Ctrl+V', style: TextStyle(color: Colors.grey)),
+                trailing:
+                    const Text('Ctrl+V', style: TextStyle(color: Colors.grey)),
               ),
               ContextMenuItem.divider,
               ContextMenuItem(
@@ -51,8 +52,12 @@ class MyHomePage extends StatelessWidget {
                 submenuBehavior: SubmenuBehavior.collapsible,
                 submenuBuilder: (context) async {
                   return [
-                    ContextMenuItem(caption: 'Subitem 1', onTap: () => debugPrint('Subitem 1')),
-                    ContextMenuItem(caption: 'Subitem 2', onTap: () => debugPrint('Subitem 2')),
+                    ContextMenuItem(
+                        caption: 'Subitem 1',
+                        onTap: () => debugPrint('Subitem 1')),
+                    ContextMenuItem(
+                        caption: 'Subitem 2',
+                        onTap: () => debugPrint('Subitem 2')),
                   ];
                 },
               ),
@@ -60,8 +65,12 @@ class MyHomePage extends StatelessWidget {
                 caption: 'Standard Submenu',
                 submenuBuilder: (context) async {
                   return [
-                    ContextMenuItem(caption: 'Subitem 3', onTap: () => debugPrint('Subitem 3')),
-                    ContextMenuItem(caption: 'Subitem 4', onTap: () => debugPrint('Subitem 4')),
+                    ContextMenuItem(
+                        caption: 'Subitem 3',
+                        onTap: () => debugPrint('Subitem 3')),
+                    ContextMenuItem(
+                        caption: 'Subitem 4',
+                        onTap: () => debugPrint('Subitem 4')),
                   ];
                 },
               ),
@@ -71,7 +80,8 @@ class MyHomePage extends StatelessWidget {
                   await Future.delayed(const Duration(seconds: 1));
                   return [
                     const ContextMenuItem(caption: 'Name: John Doe'),
-                    const ContextMenuItem(caption: 'Email: john.doe@example.com'),
+                    const ContextMenuItem(
+                        caption: 'Email: john.doe@example.com'),
                   ];
                 },
               ),
