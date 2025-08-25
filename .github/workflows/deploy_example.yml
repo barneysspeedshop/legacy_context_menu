@@ -34,7 +34,7 @@ jobs:
         run: |
           cd example
           flutter pub get
-          flutter build web --release --base-href /legacy_gantt_chart/
+          flutter build web --release --base-href /legacy_context_menu/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
