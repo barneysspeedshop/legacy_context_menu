@@ -1,3 +1,7 @@
+## 2.1.1
+
+* **FIX**: Corrected the example for deployment to gh-pages
+
 ## 2.1.0
 
 * **FEAT**: Updated the example to use `legacy_keyboard_shortcut_decoration` for keyboard shortcuts.

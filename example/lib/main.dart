@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:legacy_context_menu/legacy_context_menu.dart';
+import 'package:legacy_keyboard_shortcut_decoration/legacy_keyboard_shortcut_decoration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Context Menu Example',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
+      themeMode: ThemeMode.system,
       home: const MyHomePage(),
     );
   }
@@ -25,26 +37,29 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Context Menu Example'),
       ),
       body: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTapUp: (details) {
           showContextMenu(
-            context: context,
+            context: context, // This was already correct, just formatting.
             menuItems: [
               ContextMenuItem(
                 caption: 'Copy',
                 leading: const Icon(Icons.copy),
                 onTap: () => debugPrint('Copied'),
+                trailing: const LegacyKeyboardShortcut(shortcut: 'Ctrl+C', showIndividualKeys: false,),
+
               ),
               ContextMenuItem(
                 caption: 'Paste',
                 leading: const Icon(Icons.paste),
                 onTap: () => debugPrint('Pasted'),
-                trailing:
-                    const Text('Ctrl+V', style: TextStyle(color: Colors.grey)),
+                trailing: const LegacyKeyboardShortcut(shortcut: 'Ctrl+V', showIndividualKeys: false,),
               ),
               ContextMenuItem.divider,
               ContextMenuItem(
@@ -87,19 +102,10 @@ class MyHomePage extends StatelessWidget {
               ),
             ],
             tapPosition: details.globalPosition,
-            theme: ContextMenuTheme(
-              backgroundColor: Colors.grey.shade200,
-              elevation: 8,
-              dividerHeight: 2,
-              menuBorder: BorderSide(color: Colors.grey.shade400, width: 2),
-            ),
           );
         },
-        child: Container(
-          color: Colors.white,
-          child: const Center(
-            child: Text('Tap anywhere to show the context menu.'),
-          ),
+        child: const Center(
+          child: Text('Tap anywhere to show the context menu.'),
         ),
       ),
     );
