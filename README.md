@@ -1,6 +1,7 @@
 # legacy_context_menu
 
 [![pub package](https://img.shields.io/pub/v/legacy_context_menu.svg)](https://pub.dev/packages/legacy_context_menu)
+[![Live Demo](https://img.shields.io/badge/live-demo-brightgreen)](https://barneysspeedshop.github.io/legacy_context_menu/)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A simple, extensible context menu for Flutter that supports nested and collapsible submenus.
