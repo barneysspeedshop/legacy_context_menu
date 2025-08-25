@@ -29,7 +29,7 @@ Add the package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  legacy_context_menu: ^1.0.0
+  legacy_context_menu: ^2.0.0
 ```
 
 Then, run `flutter pub get` in your terminal.

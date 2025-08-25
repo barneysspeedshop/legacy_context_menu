@@ -129,8 +129,35 @@ class SubmenuEntryState extends PopupMenuItemState<String, SubmenuEntry> {
 
     if (!mounted) return;
 
+    // Determine the position for the submenu.
+    // It should be positioned to the right of the parent item, but if there's
+    // not enough space, it should be positioned to the left.
+    // A small overlap is applied for a more connected look.
+    final double screenWidth = overlay.size.width;
+    final double parentItemWidth = button.size.width;
+    final double parentItemRightEdge = offset.dx + parentItemWidth;
+    final double parentItemLeftEdge = offset.dx;
+    // The submenu is expected to have the same width as its parent item.
+    final double submenuWidth = parentItemWidth;
+    const double kSubmenuHorizontalOverlap = 4.0;
+
+    double submenuX;
+
+    // Check if there's enough space on the right.
+    if (parentItemRightEdge + submenuWidth - kSubmenuHorizontalOverlap <=
+        screenWidth) {
+      submenuX = parentItemRightEdge - kSubmenuHorizontalOverlap;
+    } else if (parentItemLeftEdge - submenuWidth + kSubmenuHorizontalOverlap >=
+        0) {
+      // If not, check if there's enough space on the left.
+      submenuX = parentItemLeftEdge - submenuWidth + kSubmenuHorizontalOverlap;
+    } else {
+      // Otherwise, fall back to the right, letting showMenu handle clamping.
+      submenuX = parentItemRightEdge - kSubmenuHorizontalOverlap;
+    }
+
     final RelativeRect position = RelativeRect.fromRect(
-      Rect.fromLTWH(offset.dx + button.size.width, offset.dy, 0, 0),
+      Rect.fromLTWH(submenuX, offset.dy, 0, 0),
       Offset.zero & overlay.size,
     );
 
