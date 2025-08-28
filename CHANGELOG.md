@@ -1,3 +1,7 @@
+## 2.1.2
+
+* Add screenshot to pubspec.yaml
+
 ## 2.1.1
 
 * **FIX**: Corrected the example for deployment to gh-pages
