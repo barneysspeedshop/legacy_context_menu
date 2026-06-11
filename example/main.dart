@@ -50,10 +50,9 @@ class MyHomePage extends StatelessWidget {
             menuItems: [
               ContextMenuItem(
                 caption: 'Copy',
-                leading: const Icon(Icons.copy),
+                icon: const Icon(Icons.copy),
                 onTap: () => debugPrint('Copied'),
                 trailing: const LegacyKeyboardShortcut(shortcut: 'Ctrl+C', showIndividualKeys: false,),
-
               ),
               ContextMenuItem(
                 caption: 'Paste',

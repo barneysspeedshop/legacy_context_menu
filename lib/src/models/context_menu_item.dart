@@ -18,6 +18,9 @@ class ContextMenuItem {
   /// A widget to display before the [caption].
   final Widget? leading;
 
+  /// A widget to display before the [caption]. This is a convenience property for `leading`.
+  final Widget? icon;
+
   /// A function that builds a submenu for this menu item.
   ///
   /// If this is provided, a submenu will be displayed when the user interacts
@@ -54,24 +57,29 @@ class ContextMenuItem {
   /// - [caption]: The text to display for the menu item.
   /// - [onTap]: The callback to execute when the menu item is tapped.
   /// - [leading]: A widget to display before the [caption].
+  /// - [icon]: A widget to display before the [caption]. A convenience for `leading`.
   /// - [submenuBuilder]: A function that builds a submenu for this menu item.
   /// - [trailing]: A widget to display after the [caption].
   /// - [closeMenuOnTap]: Whether to close the menu when this item is tapped.
   /// - [childContent]: Custom content to display instead of the default menu item layout.
   /// - [isDivider]: Whether this menu item is a divider.
   /// - [submenuBehavior]: The behavior of the submenu, if any.
-  const ContextMenuItem(
-      {this.caption,
-      this.onTap,
-      this.leading,
-      this.submenuBuilder,
-      this.trailing,
-      this.closeMenuOnTap = true,
-      this.childContent,
-      this.isDivider = false,
-      this.submenuBehavior = SubmenuBehavior.standard})
-      : assert(isDivider || caption != null,
-            'A caption is required for non-divider menu items.');
+  const ContextMenuItem({
+    this.caption,
+    this.onTap,
+    Widget? leading,
+    this.icon,
+    this.submenuBuilder,
+    this.trailing,
+    this.closeMenuOnTap = true,
+    this.childContent,
+    this.isDivider = false,
+    this.submenuBehavior = SubmenuBehavior.standard,
+  })  : assert(isDivider || caption != null,
+            'A caption is required for non-divider menu items.'),
+        assert(leading == null || icon == null,
+            'Cannot provide both a leading and an icon widget.')
+        , leading = leading ?? icon;
 
   /// A constant context menu item that represents a divider.
   static const ContextMenuItem divider = ContextMenuItem(isDivider: true);

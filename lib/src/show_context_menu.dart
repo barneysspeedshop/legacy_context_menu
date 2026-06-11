@@ -11,7 +11,7 @@ Future<void> showContextMenu({
   required BuildContext context,
   required List<ContextMenuItem> menuItems,
   Offset? tapPosition,
-  double menuWidth = 200.0,
+  double? menuWidth,
   double menuItemHeight = 37.0,
   EdgeInsets? padding = const EdgeInsets.symmetric(horizontal: 16.0),
   ContextMenuTheme theme = const ContextMenuTheme(),

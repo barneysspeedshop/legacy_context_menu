@@ -1,3 +1,9 @@
+## 2.2.0
+
+* **FEAT**: Added an `icon` property on `ContextMenuItem` as a convenience alias for `leading`.
+* **FEAT**: Made `menuWidth` optional on `showContextMenu`; when omitted, menu items size to their content instead of using a fixed width.
+* **FIX**: Improved menu item layout when a trailing widget is present so the caption and trailing content align correctly.
+
 ## 2.1.2
 
 * Add screenshot to pubspec.yaml

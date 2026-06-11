@@ -10,7 +10,7 @@ import 'context_menu_theme.dart';
 class SubmenuEntry extends PopupMenuItem<String> {
   final ContextMenuItem menuItem;
   final ContextMenuTheme theme;
-  final double menuWidth;
+  final double? menuWidth;
   final double menuItemHeight;
 
   const SubmenuEntry({
@@ -53,15 +53,24 @@ class SubmenuEntryState extends PopupMenuItemState<String, SubmenuEntry> {
       children: [
         SizedBox(
           height: widget.menuItemHeight,
-          child: Row(
-            children: [
-              if (widget.menuItem.leading != null) ...[
-                widget.menuItem.leading!,
+          child: ConstrainedBox(
+            constraints: widget.menuWidth != null
+                ? BoxConstraints.tightFor(width: widget.menuWidth)
+                : const BoxConstraints(),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                if (widget.menuItem.leading != null) ...[
+                  widget.menuItem.leading!,
+                  const SizedBox(width: 10),
+                ],
+                Expanded(
+                  child: Text(widget.menuItem.caption!, style: textStyle),
+                ),
                 const SizedBox(width: 10),
+                _buildTrailingIcon(),
               ],
-              Expanded(child: Text(widget.menuItem.caption!, style: textStyle)),
-              _buildTrailingIcon(),
-            ],
+            ),
           ),
         ),
         if (_isExpanded) ...[
