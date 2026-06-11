@@ -97,15 +97,15 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "2.1.2"
+    version: "2.2.0"
   legacy_keyboard_shortcut_decoration:
     dependency: "direct main"
     description:
       name: legacy_keyboard_shortcut_decoration
-      sha256: "7275763ef3b4761f124e93ac2f85a78e90c8d78762f32bbf3699630ac9daad30"
+      sha256: "42d340c71f75e9f32dee6a19d3e809763dd1fe52442f062e409a90d9085649ec"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "1.1.0"
   lints:
     dependency: transitive
     description:
