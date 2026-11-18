@@ -2,14 +2,15 @@ name: example
 description: A new Flutter project.
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
 
 dependencies:
+  material_ui: ^1.11.1
   flutter:
     sdk: flutter
   legacy_context_menu:
     path: ../
-  legacy_keyboard_shortcut_decoration: ^1.1.0
 
 dev_dependencies:
   flutter_test:

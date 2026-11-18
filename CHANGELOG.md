@@ -1,3 +1,9 @@
+## 3.0.0
+
+* **BREAKING**: Use standalone `material_ui` types instead of Flutter's legacy Material library. Applications must import `package:material_ui/material_ui.dart` and use its `MaterialApp`, theme, icons, and menu widgets.
+* **BREAKING**: Require Dart 3.13 and Flutter 3.47 or newer.
+* Update examples to use standalone Material widgets throughout, including shortcut labels.
+
 ## 2.2.0
 
 * **FEAT**: Added an `icon` property on `ContextMenuItem` as a convenience alias for `leading`.

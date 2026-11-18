@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:legacy_context_menu/legacy_context_menu.dart';
-import 'package:legacy_keyboard_shortcut_decoration/legacy_keyboard_shortcut_decoration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,11 +36,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Context Menu Example'),
-      ),
+      appBar: AppBar(title: const Text('Context Menu Example')),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTapUp: (details) {
@@ -52,14 +48,13 @@ class MyHomePage extends StatelessWidget {
                 caption: 'Copy',
                 leading: const Icon(Icons.copy),
                 onTap: () => debugPrint('Copied'),
-                trailing: const LegacyKeyboardShortcut(shortcut: 'Ctrl+C', showIndividualKeys: false,),
-
+                trailing: const Text('Ctrl+C'),
               ),
               ContextMenuItem(
                 caption: 'Paste',
                 leading: const Icon(Icons.paste),
                 onTap: () => debugPrint('Pasted'),
-                trailing: const LegacyKeyboardShortcut(shortcut: 'Ctrl+V', showIndividualKeys: false,),
+                trailing: const Text('Ctrl+V'),
               ),
               ContextMenuItem.divider,
               ContextMenuItem(
@@ -68,11 +63,13 @@ class MyHomePage extends StatelessWidget {
                 submenuBuilder: (context) async {
                   return [
                     ContextMenuItem(
-                        caption: 'Subitem 1',
-                        onTap: () => debugPrint('Subitem 1')),
+                      caption: 'Subitem 1',
+                      onTap: () => debugPrint('Subitem 1'),
+                    ),
                     ContextMenuItem(
-                        caption: 'Subitem 2',
-                        onTap: () => debugPrint('Subitem 2')),
+                      caption: 'Subitem 2',
+                      onTap: () => debugPrint('Subitem 2'),
+                    ),
                   ];
                 },
               ),
@@ -81,11 +78,13 @@ class MyHomePage extends StatelessWidget {
                 submenuBuilder: (context) async {
                   return [
                     ContextMenuItem(
-                        caption: 'Subitem 3',
-                        onTap: () => debugPrint('Subitem 3')),
+                      caption: 'Subitem 3',
+                      onTap: () => debugPrint('Subitem 3'),
+                    ),
                     ContextMenuItem(
-                        caption: 'Subitem 4',
-                        onTap: () => debugPrint('Subitem 4')),
+                      caption: 'Subitem 4',
+                      onTap: () => debugPrint('Subitem 4'),
+                    ),
                   ];
                 },
               ),
@@ -96,7 +95,8 @@ class MyHomePage extends StatelessWidget {
                   return [
                     const ContextMenuItem(caption: 'Name: John Doe'),
                     const ContextMenuItem(
-                        caption: 'Email: john.doe@example.com'),
+                      caption: 'Email: john.doe@example.com',
+                    ),
                   ];
                 },
               ),
