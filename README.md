@@ -23,13 +23,18 @@ A simple, extensible context menu for Flutter that supports nested and collapsib
 | :---: | :---: |
 | **TODO: Add screenshot** | **TODO: Add screenshot** |
 
+## Material migration
+
+Version 3 requires Dart 3.13 and Flutter 3.47 or newer. Import standalone `material_ui` in your application and use its `MaterialApp`, theme, and widgets. Flutter's legacy Material types are separate and should not be mixed with the menu's Material widgets.
+
 ## Getting Started
 
 Add the package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  legacy_context_menu: ^2.0.0
+  legacy_context_menu: ^3.0.0
+  material_ui: ^1.11.1
 ```
 
 Then, run `flutter pub get` in your terminal.
@@ -39,6 +44,7 @@ Then, run `flutter pub get` in your terminal.
 Import the package in your Dart file:
 
 ```dart
+import 'package:material_ui/material_ui.dart';
 import 'package:legacy_context_menu/legacy_context_menu.dart';
 ```
 
@@ -48,7 +54,7 @@ Here's a basic example of how to show a context menu when a widget is tapped:
 GestureDetector(
   onTapUp: (details) {
     showContextMenu(
-      context,
+      context: context,
       menuItems: [
         ContextMenuItem(caption: 'Copy', onTap: () {}),
         ContextMenuItem(caption: 'Paste', onTap: () {}),
@@ -92,14 +98,14 @@ You can customize the appearance of the context menu by providing a `ContextMenu
 
 ```dart
 showContextMenu(
-  context,
+  context: context,
   menuItems: myMenuItems,
   tapPosition: details.globalPosition,
-  theme: const ContextMenuTheme(
+  menuWidth: 250,
+  menuItemHeight: 50,
+  theme: ContextMenuTheme(
     backgroundColor: Colors.grey[200],
     elevation: 12,
-    menuWidth: 250,
-    menuItemHeight: 50,
     dividerHeight: 2,
   ),
 );
@@ -107,9 +113,9 @@ showContextMenu(
 
 ## Contributing
 
-Contributions are welcome! Please visit the [GitHub repository](https://github.com/your-username/legacy_context_menu) to learn how to contribute.
+Contributions are welcome! Please visit the [GitHub repository](https://github.com/barneysspeedshop/legacy_context_menu) to learn how to contribute.
 
-If you encounter any issues or have feature requests, please file them in the [issue tracker](https://github.com/your-username/legacy_context_menu/issues).
+If you encounter any issues or have feature requests, please file them in the [issue tracker](https://github.com/barneysspeedshop/legacy_context_menu/issues).
 
 ## License
 
