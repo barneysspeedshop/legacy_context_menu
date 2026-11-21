@@ -20,9 +20,7 @@ class SubmenuEntry extends PopupMenuItem<String> {
     required this.menuItemHeight,
     super.padding,
     super.key,
-  }) : super(
-          child: const SizedBox.shrink(),
-        );
+  }) : super(child: const SizedBox.shrink());
 
   @override
   SubmenuEntryState createState() => SubmenuEntryState();
@@ -44,7 +42,8 @@ class SubmenuEntryState extends PopupMenuItemState<String, SubmenuEntry> {
 
   @override
   Widget buildChild() {
-    final textStyle = Theme.of(context).popupMenuTheme.textStyle ??
+    final textStyle =
+        Theme.of(context).popupMenuTheme.textStyle ??
         Theme.of(context).textTheme.bodyMedium;
 
     return Column(
@@ -109,7 +108,8 @@ class SubmenuEntryState extends PopupMenuItemState<String, SubmenuEntry> {
     if (widget.menuItem.submenuBehavior == SubmenuBehavior.collapsible) {
       // For collapsible menus, use a drop-down arrow that rotates when expanded.
       // It respects the theme's trailingIcon if provided.
-      final icon = widget.theme.trailingIcon ??
+      final icon =
+          widget.theme.trailingIcon ??
           Icon(Icons.arrow_drop_down, color: iconColor);
       return Transform.rotate(
         angle: _isExpanded ? 3.14159 : 0, // 180 degrees

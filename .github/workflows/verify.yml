@@ -18,12 +18,13 @@ jobs:
         persist-credentials: false
     - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
       with:
-        flutter-version: 3.50.0
+        flutter-version: 3.50.1
         channel: stable
         cache: true
     - name: Analyze and test package
       run: |
         flutter pub get
+        dart format --output=none --set-exit-if-changed lib
         flutter analyze
         flutter test
     - name: Analyze and build example

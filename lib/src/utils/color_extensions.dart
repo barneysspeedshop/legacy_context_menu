@@ -1,12 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 extension ColorAlphas on Color {
-  Color withValues({
-    int? alpha,
-    int? red,
-    int? green,
-    int? blue,
-  }) {
+  Color withValues({int? alpha, int? red, int? green, int? blue}) {
     // ignore: deprecated_member_use
     final int currentValue = value;
     return Color.fromARGB(

@@ -1,4 +1,1 @@
-enum SubmenuBehavior {
-  standard,
-  collapsible,
-}
+enum SubmenuBehavior { standard, collapsible }

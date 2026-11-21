@@ -26,7 +26,7 @@ class ContextMenuItem {
   /// If this is provided, a submenu will be displayed when the user interacts
   /// with this menu item.
   final Future<List<ContextMenuItem>> Function(BuildContext context)?
-      submenuBuilder;
+  submenuBuilder;
 
   /// A widget to display after the [caption].
   ///
@@ -75,11 +75,15 @@ class ContextMenuItem {
     this.childContent,
     this.isDivider = false,
     this.submenuBehavior = SubmenuBehavior.standard,
-  })  : assert(isDivider || caption != null,
-            'A caption is required for non-divider menu items.'),
-        assert(leading == null || icon == null,
-            'Cannot provide both a leading and an icon widget.')
-        , leading = leading ?? icon;
+  }) : assert(
+         isDivider || caption != null,
+         'A caption is required for non-divider menu items.',
+       ),
+       assert(
+         leading == null || icon == null,
+         'Cannot provide both a leading and an icon widget.',
+       ),
+       leading = leading ?? icon;
 
   /// A constant context menu item that represents a divider.
   static const ContextMenuItem divider = ContextMenuItem(isDivider: true);
