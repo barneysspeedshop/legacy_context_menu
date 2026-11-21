@@ -24,6 +24,7 @@ jobs:
     - name: Analyze and test package
       run: |
         flutter pub get
+        dart format --output=none --set-exit-if-changed lib
         flutter analyze
         flutter test
     - name: Analyze and build example

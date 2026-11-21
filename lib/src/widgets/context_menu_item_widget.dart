@@ -17,41 +17,42 @@ class ContextMenuItemWidget extends PopupMenuItem<String> {
     super.padding,
     super.key,
   }) : super(
-          enabled: menuItem.onTap != null,
-          height: menuItemHeight,
-          onTap: menuItem.onTap,
-          child: Builder(
-            builder: (innerContext) {
-              final textStyle =
-                  Theme.of(innerContext).popupMenuTheme.textStyle ??
-                      Theme.of(innerContext).textTheme.bodyMedium;
-              return ConstrainedBox(
-                constraints: menuWidth != null
-                    ? BoxConstraints.tightFor(width: menuWidth)
-                    : const BoxConstraints(),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: menuItem.childContent ??
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          if (menuItem.leading != null) ...[
-                            menuItem.leading!,
-                            const SizedBox(width: 10),
-                          ],
-                          if (menuItem.trailing != null) ...[
-                            Expanded(
-                              child: Text(menuItem.caption!, style: textStyle),
-                            ),
-                            const SizedBox(width: 10),
-                            menuItem.trailing!,
-                          ] else
-                            Text(menuItem.caption!, style: textStyle),
-                        ],
-                      ),
-                ),
-              );
-            },
-          ),
-        );
+         enabled: menuItem.onTap != null,
+         height: menuItemHeight,
+         onTap: menuItem.onTap,
+         child: Builder(
+           builder: (innerContext) {
+             final textStyle =
+                 Theme.of(innerContext).popupMenuTheme.textStyle ??
+                 Theme.of(innerContext).textTheme.bodyMedium;
+             return ConstrainedBox(
+               constraints: menuWidth != null
+                   ? BoxConstraints.tightFor(width: menuWidth)
+                   : const BoxConstraints(),
+               child: Align(
+                 alignment: Alignment.centerLeft,
+                 child:
+                     menuItem.childContent ??
+                     Row(
+                       mainAxisSize: MainAxisSize.max,
+                       children: [
+                         if (menuItem.leading != null) ...[
+                           menuItem.leading!,
+                           const SizedBox(width: 10),
+                         ],
+                         if (menuItem.trailing != null) ...[
+                           Expanded(
+                             child: Text(menuItem.caption!, style: textStyle),
+                           ),
+                           const SizedBox(width: 10),
+                           menuItem.trailing!,
+                         ] else
+                           Text(menuItem.caption!, style: textStyle),
+                       ],
+                     ),
+               ),
+             );
+           },
+         ),
+       );
 }
