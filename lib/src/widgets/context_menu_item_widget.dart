@@ -47,7 +47,9 @@ class ContextMenuItemWidget extends PopupMenuItem<String> {
                            const SizedBox(width: 10),
                            menuItem.trailing!,
                          ] else
-                           Text(menuItem.caption!, style: textStyle),
+                           Expanded(
+                             child: Text(menuItem.caption!, style: textStyle),
+                           ),
                        ],
                      ),
                ),

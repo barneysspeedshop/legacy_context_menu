@@ -1,3 +1,7 @@
+## 3.0.1
+
+- Keep long captions without trailing widgets within menu bounds, wrapping text while preserving selection.
+
 ## 3.0.0
 
 * **BREAKING**: Use standalone `material_ui` types instead of Flutter's legacy Material library. Applications must import `package:material_ui/material_ui.dart` and use its `MaterialApp`, theme, icons, and menu widgets.
